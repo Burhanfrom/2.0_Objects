@@ -100,14 +100,13 @@ public class BasicGameApp implements Runnable {
 		astro.move();
 		for (int i = 0; i < aAstro.length; i++) {
 			aAstro[i].Bounce();
+			if(aAstro[i].rec.intersects(astro.rec)){
+				System.out.println("Crash");
+			}
 		}
+
+
 	}
-	public void checkIntersections(){
-		if(astro.rec.intersects(astro.rec)){
-			astro.isAlive = false;
-			System.out.println("INTERSECTED");
-			Score=Score + 1;
-		}
 
 	//Pauses or sleeps the computer for the amount specified in milliseconds
 	public void pause(int time) {
